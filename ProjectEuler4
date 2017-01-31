@@ -1,0 +1,43 @@
+var firstNumber = 900;
+var secondNumber = 900;
+var palindromes = [];
+var out = 0;
+var outTwo = 0;
+var x = 0;
+var y = 0;
+var endingNumberPalins = [];
+var secondnoPalins = [];
+
+function multiply(number){ //basic multiply function
+  return (firstNumber * number);
+}
+
+
+while(firstNumber < 1000){ //alters both first and second number to create all 6 number combinations
+  for(i = 900; i<1000; i++){
+    palindromes.push(multiply(i)); //pushes it to 
+  }
+  firstNumber++;
+}
+
+//console.log(palindromes);
+
+for(i = 0; i<palindromes.length; i++){ //check first and last integer to see if they're the same
+  out = palindromes[i];
+  x = String(out).charAt(0);
+  y = String(out).charAt(5);
+  if(x === y){
+    endingNumberPalins.push(out);
+  }
+}
+
+for(i = 0; i< endingNumberPalins.length; i++){ //check second and fifth integer
+  out = endingNumberPalins[i];
+  x = String(out).charAt(1);
+  y = String(out).charAt(4);
+  if(x === y){
+    secondnoPalins.push(out);
+  }
+}
+
+console.log(secondnoPalins); //print the list and choose highest palindrome
